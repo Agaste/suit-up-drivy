@@ -1,33 +1,118 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>CSS/HTML Workshop with Drivy</title>
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
-  <body>
-    <div id="car">
-      <input class="model" type="text" placeholder="Car model"/>
-      <input class="price-by-day" type="number" placeholder="Price by day"/>
-      <input class="price-by-km" type="number" placeholder="Price by km"/>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-color--cyan">
+  <header class="mdl-layout__header mdl-color--cyan">
+    <div class="mdl-layout__header mdl-color--pink mdl-typography--text-center" >
+      <span class="mdl-layout-title "><br/>DRIVY : Rent A Car</span>
     </div>
-    <div id="rental">
-      <input class="begin" type="date" placeholder="Rental begin date"/>
-      <input class="end" type="date" placeholder="Rental end date"/>
-      <input class="distance" type="number" placeholder="Distance in km"/>
-      <input class="option" type="checkbox" placeholder="Deductible option"/>
-    </div>
-    <button id="compute">Compute</button>
+  </header>
+
+  <div class="mdl-grid">
+  <div class="mdl-layout-spacer"></div>
+  <div class="demo-charts mdl-color--white mdl-shadow--3dp mdl-cell mdl-cell--stretch mdl-cell--12-col mdl-grid mdl-typography--text-center">
+  
+  <main class="mdl-layout__content">
+    <div class="page-content">
+
+      <div id="car">
+        <form action="#">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input car-model" type="text">
+            <label class="mdl-textfield__label" for="car-model">Car model</label>
+          </div>
+        </form> 
+
+	<form action="#">
+		<div class="mdl-textfield mdl-js-textfield">
+			<input class="mdl-textfield__input price-by-day" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2">
+			<label class="mdl-textfield__label" for="sample2">Price per day</label>
+			<span class="mdl-textfield__error">Input is not a number!</span>
+		</div>
+	</form>
+
+	<form action="#">
+		<div class="mdl-textfield mdl-js-textfield">
+			<input class="mdl-textfield__input price-by-km" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2">
+			<label class="mdl-textfield__label" for="sample2">Price per km</label>
+			<span class="mdl-textfield__error">Input is not a number!</span>
+		</div>
+	</form>
+	</div>
+
+
+      <div id="rental">
+		<form action="#">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input begin" type="date" pattern="-?[0-9]*(\.[0-9]+)?">
+          <label class="mdl-textfield__label" for="begin">Rental begin date</label>
+          </div>
+        </form>
+		
+		<form action="#">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input end" type="date" pattern="-?[0-9]*(\.[0-9]+)?">
+          <label class="mdl-textfield__label" for="end">Rental end date</label>
+          </div>
+        </form>
+		
+		<form action="#">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input distance" type="number" pattern="-?[0-9]*(\.[0-9]+)?">
+          <label class="mdl-textfield__label" for="price-by-km">Distance in km</label>
+          <span class="mdl-textfield__error">Input is not a number!</span>
+          </div>
+        </form>
+		<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+			<input type="checkbox" id="checkbox-2" class="mdl-checkbox__input option">
+			<span class="mdl-checkbox__label">Accident insurance option</span>
+		</label>
+      </div>
+
+	  
+	  <br/>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="compute">
+          GO !
+      </button>
+	 
+
     <div id="actors"></div>
-    <script id="template" type="x-tmpl-mustache">
-      {{#actors}}
-        <div class="actor">
-          <span>{{who}}</span>
-          <span>{{type}}</span>
-          <span>{{amount}}</span>
-        </div>
-      {{/actors}}
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
-    <script src="drivy.js"></script>
-    <script src="index.js"></script>
-  </body>
+	  <br/>
+      <script id="template" type="x-tmpl-mustache">
+        {{#actors}}
+  <div class="mdl-grid">
+  <div class="mdl-layout-spacer"></div>
+  <div class="demo-charts mdl-color--white mdl-shadow--3dp mdl-cell mdl-cell--stretch mdl-cell--12-col mdl-grid mdl-typography--text-center">		
+         <div class="actor">
+		 
+            <span>{{who}}</span>
+            <span>{{type}}</span>
+            <span>{{amount}}</span>
+			
+		</div>
+  </div>
+  </div>
+  </div>  
+       {{/actors}}
+	</div>   
+	</div>   
+	   
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
+      <script src="drivy.js"></script>
+      <script src="index.js"></script>
+
+    </div>
+  </main>
+
+  </div>
+  </div>
+
 </html>
